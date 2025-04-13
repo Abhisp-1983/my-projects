@@ -7,7 +7,5 @@ toggler.addEventListener("click", () => {
   //     document.body.style.backgroundColor = "white";
   //   }
 
-  toggler.checked === true
-    ? (document.body.style.backgroundColor = "black")
-    : (document.body.style.backgroundColor = "white");
+  toggler.checked === true ? (document.body.style.backgroundColor = "black") : (document.body.style.backgroundColor = "white");
 });
