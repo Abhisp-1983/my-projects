@@ -1,0 +1,41 @@
+<div class="table-container">
+  <div class="table-header">
+    <div class="table-row">
+      <div class="table-cell" (click)="sort('name')">
+        Name
+        <span *ngIf="sortColumn === 'name'" class="sort-icon">
+          {{ sortDirection === 'asc' ? '▲' : '▼' }}
+        </span>
+      </div>
+      <div class="table-cell" (click)="sort('age')">
+        Age
+        <span *ngIf="sortColumn === 'age'" class="sort-icon">
+          {{ sortDirection === 'asc' ? '▲' : '▼' }}
+        </span>
+      </div>
+      <div class="table-cell" (click)="sort('email')">
+        Email
+        <span *ngIf="sortColumn === 'email'" class="sort-icon">
+          {{ sortDirection === 'asc' ? '▲' : '▼' }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="table-body" #tableBody>
+    <div class="table-row">
+      <div class="table-cell">Alice</div>
+      <div class="table-cell">25</div>
+      <div class="table-cell">alice@example.com</div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">Bob</div>
+      <div class="table-cell">30</div>
+      <div class="table-cell">bob@example.com</div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">Charlie</div>
+      <div class="table-cell">35</div>
+      <div class="table-cell">charlie@example.com</div>
+    </div>
+  </div>
+</div>
