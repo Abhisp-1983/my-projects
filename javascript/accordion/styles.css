@@ -98,6 +98,10 @@ h1 {
     transform: rotate(45deg);
 }
 
+.accordion-item.active .accordion-header {
+    background-color: #f8f9fa;
+}
+
 .accordion-content {
     max-height: 0;
     overflow: hidden;
