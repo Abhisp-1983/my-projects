@@ -1,0 +1,51 @@
+<div class="quotes-container">
+  <div class="loading-state" *ngIf="loading" [@slideInOut]>
+    <p>Loading quotes...</p>
+  </div>
+
+  <div class="quotes-grid" *ngIf="!loading && quotes.length > 0">
+    <div class="quote-card" 
+         *ngFor="let quote of displayedQuotes"
+         [@fadeScale]
+         (mouseenter)="onQuoteHover(quote)" 
+         (mouseleave)="onQuoteLeave(quote)">
+      <div class="quote-symbol" aria-hidden="true">"</div>
+      <div class="quote-content">
+        <p class="quote-text">{{quote.text}}</p>
+        <div class="quote-author">― {{quote.author}}</div>
+        <div class="quote-category">{{quote.category}}</div>
+      </div>
+      <div class="quote-actions" [class.visible]="isQuoteHovered(quote)">
+        <button class="action-button" 
+                (click)="onCopyQuote(quote)"
+                title="Copy quote">
+          <i class="fas fa-copy"></i>
+        </button>
+        <button class="action-button" 
+                (click)="onShareQuote(quote)"
+                title="Share quote">
+          <i class="fas fa-share-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation-buttons" *ngIf="!loading && quotes.length > quotesPerPage" [@slideInOut]>
+    <button class="nav-button" 
+            [disabled]="!canGoPrevious"
+            (click)="previousPage()"
+            [class.disabled]="!canGoPrevious">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="nav-button" 
+            [disabled]="!canGoNext"
+            (click)="nextPage()"
+            [class.disabled]="!canGoNext">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <div class="empty-state" *ngIf="!loading && quotes.length === 0" [@slideInOut]>
+    <p>No quotes available</p>
+  </div>
+</div>

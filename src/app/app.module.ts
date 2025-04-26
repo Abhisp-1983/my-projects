@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { SortTableComponent } from './sort-table/sort-table.component';
+import { QuoteComponent } from './quote/quote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SortTableComponent
+    QuoteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
