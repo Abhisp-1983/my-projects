@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.accordion {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transform-origin: top;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.accordion-header:hover {
+    background-color: #f8f9fa;
+    transform: translateX(0);
+}
+
+.accordion-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: #3498db;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header::before {
+    transform: scaleY(1);
+}
+
+.accordion-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.icon {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    color: #3498db;
+}
+
+.accordion-item.active .icon {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #fff;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px;
+    padding: 20px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.accordion-content p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+    left: 0;
+    transition: left 0.3s ease;
+}
+
+.accordion-item.active .accordion-content p {
+    animation: slideInText 0.5s ease forwards;
+}
+
+@keyframes slideInText {
+    from {
+        left: -20px;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
